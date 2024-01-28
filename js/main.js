@@ -6,50 +6,48 @@ const name = "Aidan";
 let random_letter = Math.floor(Math.random() * name.length);
 console.log(name.charAt(random_letter));
 
-// First interactive game
-let playGame = confirm("Shall we play rock, paper, scissors?");
-if (playGame) {
-  //play
-  let playerChoice = prompt("Please enter rock, paper, or scissors.");
-  if (playerChoice) {
-    let playerOne = playerChoice.trim().toLowerCase();
-    if (playerOne === "rock" || playerOne === "paper" || playerOne === "scissors" ) {
-      // computer choice
 
-      let computerChoice = Math.floor(Math.random() * 3 + 1);
-      let computer = computerChoice === 1 ? "rock" 
-        : computerChoice === 2 ? "paper" 
-        : "scissors";
+// Select stuff on a page
 
-      // Results
-      let result = playerOne === computer 
-        ? "Tie Game!" 
-        : playerOne === "rock" && computer === "paper" 
-        ? `Player One: ${playerOne}\nComputer: ${computer}\nComputer Wins!`
-        : playerOne === "rock" && computer === "scissors"
-        ? `Player One: ${playerOne}\nComputer: ${computer}\nPlayer One Wins!`
-        : playerOne === "paper" && computer === "scissors"
-        ? `Player One: ${playerOne}\nComputer: ${computer}\nComputer Wins!`
-        : playerOne === "paper" && computer === "rock" 
-        ? `Player One: ${playerOne}\nComputer: ${computer}\nPlayer One Wins!`
-        : playerOne === "scissors" && computer === "rock" 
-        ? `Player One: ${playerOne}\nComputer: ${computer}\nComputer Wins!` 
-        : `Player One: ${playerOne}\nComputer: ${computer}\nPlayer One Wins!`;
-        
-      alert(result);
-      
-      let playAgain = confirm("Play again?");
+const view1 = document.getElementById("view1");
+const view2 = doucment.querySelector("#view2");
 
-      playAgain ? location.reload() : alert("Ok, thanks for playing!");
-    } else {
-      alert("You didn't enter rock, paper or scissors.")
-    }
-  } else {
-    alert("I guess you changed your mind. Maybe next time.");
-  }
-} else {
-  alert('Ok maybe next time.');
+view1.style.display = "flex";
+view2.style.display = "none";
+
+const views = document.getElementsByClassName("view"); // returns an HTMLCollection
+const sameViews = document.querySelectorAll('.view'); // returns a NodeList
+
+const divs = view1.querySelectorAll("div"); // returns a NodeList of divs just in the first view, not the document
+const sameDivs = view1.getElementsByTagName("div"); // returns a HTMLCollection of divs just in the first view, not the document
+
+const evenDivs = view1.querySelectorAll("div:nth-of-type(2n)"); // return only the even divs
+
+// Alter the page
+
+for (let i = 0; i < evenDivs.length; i++) {
+  evenDivs[i].style.backgroundColor = "darkblue";
+  // evenDivs[i].style.width = "200px";
+  // evenDivs[i].style.height = "200px";
 }
+
+const navText = document.querySelector("nav h1"); // inside nav bar i want h1
+navText.textContent = "Hello World!" // changes JUST text
+
+const navbar = document.querySelector("nav");
+navbar.innerHTML = `<h1>Hello!</h1> <p>This should align right</p>` // actually ADDS html to the page
+navbar.style.justifyContent = "space-between";
+
+// DOM Tree
+evenDivs[0].parentElement // returns the section the divs are in
+evenDivs[0].parentElement.children // returns all children of the parent element (the divs)
+evenDivs[0].parentElement.childNodes // returns all elements AND HTML nodes inside divs
+evenDivs[0].parentElement.hasChildNodes() // checks if there are child nodes
+evenDivs[0].parentElement.lastChild // very last child of parent element
+evenDivs[0].parentElement.lastElementChild // very last element of the parent element
+// first child
+// first element child
+// the rest are pretty self explanatory
 
 
 
