@@ -1,16 +1,7 @@
-// First Coding Challenge
-
-// Write code that will return a random letter from your name
-
-const name = "Aidan";
-let random_letter = Math.floor(Math.random() * name.length);
-console.log(name.charAt(random_letter));
-
-
 // Select stuff on a page
 
 const view1 = document.getElementById("view1");
-const view2 = doucment.querySelector("#view2");
+const view2 = document.querySelector("#view2");
 
 view1.style.display = "flex";
 view2.style.display = "none";
