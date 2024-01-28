@@ -43,5 +43,7 @@ const initApp = () => {
   })
 }
 
+// prevent Default : prevent the default action of an HTML element (such as a form that reloads a page)
+
 
 
